@@ -6,180 +6,50 @@
     <meta charset="UTF-8">
 </head>
 <body>
-<section class="first-page">
-    <div class="top left"></div>
-    <div class="top right"></div>
-    <div class="bottom left"></div>
-    <div class="bottom right"></div>
-    <header>
-        Wedding Invitation
-    </header>
-    <main>
-        <div>Cheolmin</div>
-        <div>&</div>
-        <div>Jisun</div>
-    </main>
-    <footer>
-        <div>2018년 2월 10일 토요일 낮 11시</div>
-        <div>VILLA de BAILEY</div>
-    </footer>
-</section>
-<section class="second-page">
-    <header>
-        저희의 결혼식에 오신것을 환영합니다.<br>
-        <br>
-        신현모 정필화<span>의 아들</span> 철민<br>
-        채수창 박정남<span>의 딸</span> 지선
-    </header>
-    <main>
-        Map
-    </main>
-    <footer>
-        <div>주소 서울시 강남구 도산대로 150 (구, 논현동 6-2)</div>
-        <div>전화 02.517.9563</div>
-        <hr/>
-        <div>지하철 3호선 신사역 1번 출구 도보 5</div>
-        <div>
-            버스 145, 148, 440, 4212, 6800, 강남08<br>
-            (신사동 고개 정류장 하차)
-        </div>
-    </footer>
-</section>
-<section class="third-page">
-    <header>February</header>
-    <main>
-        <table>
-            <tr>
-                <td>sun</td>
-                <td>mon</td>
-                <td>tue</td>
-                <td>wed</td>
-                <td>thu</td>
-                <td>fri</td>
-                <td>sat</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-                <td>10</td>
-            </tr>
-            <tr></tr>
-            <tr></tr>
-            <tr></tr>
-        </table>
-    </main>
-</section>
-
+<img class="first-page" src="first-page.png"/>
+<img class="second-page" src="parent.png"/>
+<img class="third-page" src="calendar.png"/>
+<img class="fourth-page" src="where.png"/>
+<div id="map"></div>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmzQTgEqYg5pw89Op_AVuhAr-h2lfCpwI&callback=initMap"></script>
+<img src="how.png"/>
 <script>
-    new Vue({
-        data: {},
-        methods: {}
-    })
+    function initMap() {
+        var weddingHall = {lat: 37.5178905, lng: 127.0229441};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 18,
+            center: weddingHall
+        });
+        var marker = new google.maps.Marker({
+            position: weddingHall,
+            map: map
+        });
+    }
 </script>
 </body>
 </html>
 <style>
     body {
-        background-color: #fff4d6;
+        background-color: #f9f2eb;
     }
 
-    section {
-        height: calc(100vh - 80px);
-        margin: 40px;
-    }
-
-    .top {
-        top: -75px;
-    }
-
-    .bottom {
-        bottom: -75px;
-    }
-
-    .left {
-        left: -75px;
-    }
-
-    .right {
-        right: -75px;
+    img {
+        width: 100vw;
     }
 
     .first-page {
-        background-color: #fff4d6;
+        background-color: #f9f2eb;
         position: relative;
-        overflow: hidden;
-        border: 5px solid gray;
-    }
-
-    .first-page > div {
-        position: absolute;
-        width: 150px;
-        height: 150px;
-        border-radius: 100%;
-        border: 5px solid gray;
-        background-color: #fff4d6;
-    }
-
-    .first-page header {
-        text-align: center;
-        top: 12vh;
-        position: relative;
-        font-size: 40px;
-    }
-
-    .first-page main {
-        text-align: center;
-        top: 34vh;
-        position: relative;
-        font-size: 50px;
-        font-family: cursive;
-    }
-
-    .first-page footer {
-        text-align: center;
-        position: relative;
-        top: 62vh;
-        font-size: 25px;
+        top: 20px;
+        height: 100vh;
     }
 
     .second-page {
-        font-family: monospace;
+        background-color: #4d2e34;
     }
 
-    .second-page header {
-        text-align: left;
-        font-size: 40px;
-    }
-
-    .second-page main {
-        height: 35vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 50px;
-        border: 5px solid gray;
-        margin-top: 100px;
-    }
-
-    .second-page footer {
-        font-size: 37px;
-        margin-top: 100px;
-    }
-
-    .third-page main table {
-        font-size: 40px;
+    #map {
+        height: 600px;
+        width: 100%;
     }
 </style>
