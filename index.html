@@ -1,56 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Conan & ChaeJi</title>
-    <script src="https://unpkg.com/vue"></script>
-    <meta charset="UTF-8">
+  <title>Conan & ChaeJi</title>
+  <script src="https://unpkg.com/vue"></script>
+  <meta charset="UTF-8">
 </head>
 <body>
-<img class="first-page" src="first-page.png"/>
-<img class="second-page" src="parent.png"/>
-<img class="third-page" src="calendar.png"/>
-<img class="fourth-page" src="where.png"/>
-<div id="map"></div>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmzQTgEqYg5pw89Op_AVuhAr-h2lfCpwI&callback=initMap"></script>
-<img src="how.png"/>
-<script>
-    function initMap() {
-        var weddingHall = {lat: 37.517946, lng: 127.025047};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 17,
-            center: weddingHall
-        });
-        var marker = new google.maps.Marker({
-            position: weddingHall,
-            map: map
-        });
-    }
+  <img class="first-page" src="first-page.png"/>
+  <img class="second-page" src="parent.png"/>
+  <img class="third-page" src="calendar.png"/>
+  <img class="fourth-page" src="where.png"/>
+  <div id="map"></div>
+
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cb9bada71ad62929a45854a0f67128ab"></script>
+  <img src="how.png"/>
+  <script>
+  var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+  var options = { //지도를 생성할 때 필요한 기본 옵션
+    center: new daum.maps.LatLng(37.517946, 127.025047), //지도의 중심좌표.
+    level: 3 //지도의 레벨(확대, 축소 정도)
+  };
+
+  var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
 </script>
 </body>
 </html>
 <style>
-    body {
-        background-color: #f9f2eb;
-    }
+body {
+  background-color: #f9f2eb;
+}
 
-    img {
-        width: 100vw;
-    }
+img {
+  width: 100vw;
+}
 
-    .first-page {
-        background-color: #f9f2eb;
-        position: relative;
-        top: 20px;
-        height: 100vh;
-    }
+.first-page {
+  background-color: #f9f2eb;
+  position: relative;
+  top: 20px;
+  height: 100vh;
+}
 
-    .second-page {
-        background-color: #4d2e34;
-    }
+.second-page {
+  background-color: #4d2e34;
+}
 
-    #map {
-        height: 600px;
-        width: 100vw;
-        margin: 20px 0;
-    }
+#map {
+  height: 600px;
+  width: 100vw;
+}
 </style>
